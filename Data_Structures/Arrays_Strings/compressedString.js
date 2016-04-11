@@ -1,3 +1,8 @@
+/*
+  Lessons learned: Why use an array when you can use a string?
+  for each new char in the string append it to a new compressed sting
+*/
+
 var compressedString = function(s){
   if (typeof s !== 'string'){
     return '';
