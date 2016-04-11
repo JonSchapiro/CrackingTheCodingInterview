@@ -1,4 +1,4 @@
-var removeZeroesFromMatrix = function(matrix){
+var zeroMatrix = function(matrix){
   var zeroMap = [];
   //loop through entire matrix
   var matrixLength = matrix.length;
@@ -8,16 +8,16 @@ var removeZeroesFromMatrix = function(matrix){
       //if zero found and row and col has not already been zeroed
       if (matrix[i][j] === 0 && !alreadyZeroed(zeroMap,i,j)){
         //zero out that row and column
-        console.log('zero found', i,j)
         matrix = clearRowAndColumn(matrix,i,j); 
-        zeroMap.push([i,j])
+        zeroMap.push([i,j]) // add the row and col to zero map
       }
     }
   }
-  printMatrix(matrix)
+  //printMatrix(matrix)
   return matrix;
 }
 
+//clears row and colum with zeroes
 var clearRowAndColumn = function(matrix,row,column){
   var count = matrix.length-1; 
   
@@ -30,6 +30,7 @@ var clearRowAndColumn = function(matrix,row,column){
   return matrix;
 }
 
+//checks zeroMap to see if a row or column has already been zeroed
 var alreadyZeroed = function(map,row,column){
   var exists = false;
   if (map.length < 1){return false;}
@@ -43,6 +44,7 @@ var alreadyZeroed = function(map,row,column){
   return exists;
 }
 
+//helper to print matrix
 var printMatrix = function(matrix){
   for (var i = 0; i < matrix.length; i ++ ){
     for (var j = 0; j < matrix.length; j++){
@@ -52,9 +54,6 @@ var printMatrix = function(matrix){
   }
 }
 
-removeZeroesFromMatrix(
-  [
-  [1,1,0],
-  [0,0,1],
-  [1,1,1]]
-  )
+
+
+module.exports = zeroMatrix;
